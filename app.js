@@ -1,12 +1,10 @@
 window.addEventListener("load", () => {
   show();
 });
-console.log("okay");
 let an = document.getElementById("an");
 let tn = document.getElementById("tn");
 tn.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
-    console.log("done");
     fun();
   }
 });
@@ -21,7 +19,6 @@ function fun() {
   noteObj.push(tn.value);
   localStorage.setItem("notes", JSON.stringify(noteObj));
   tn.value = "";
-  console.log(noteObj);
   show();
 }
 
@@ -53,7 +50,6 @@ let show = () => {
   }
 };
 function delnot(index) {
-  console.log("i am deleting " + index);
   let notes = localStorage.getItem("notes");
   if (notes == null) {
     noteObj = [];
@@ -75,7 +71,6 @@ search.addEventListener("input", function () {
   let card = document.getElementsByClassName("cardcc");
   Array.from(card).forEach(function (element) {
     let cardTxt = element.getElementsByTagName("p")[0].innerText;
-    console.log(element);
     if (cardTxt.includes(val)) {
       element.style.display = "block";
     } else {
